@@ -3,10 +3,10 @@ CF_Token="YOUR_API_TOKEN"
 CF_Domain="YOUR_DOMAIN"
 
 ##Get My IPv4 Address
-current_ip=`curl -4sX GET "https://api.myip.com" | jq ".ip" `
+current_ip="$(curl -4sX GET "https://api.myip.com" | jq ".ip" ) "
 
 ##Get Cloudflare DNS Record ID
-dns_record_id=`curl -sX GET "https://api.cloudflare.com/client/v4/zones/$CF_Zone_ID/dns_records?type=A&name=$CF_Domain" -H "Authorization: Bearer $CF_Token" -H "Content-Type: application/json" | jq -c ".result[].id" | sed 's/\"//g' `
+dns_record_id="$(curl -sX GET "https://api.cloudflare.com/client/v4/zones/$CF_Zone_ID/dns_records?type=A&name=$CF_Domain" -H "Authorization: Bearer $CF_Token" -H "Content-Type: application/json" | jq -c ".result[].id" | sed 's/\"//g' ) "
 
 if [ -z "$dns_record_id" ] ; then
     ##Create Cloudflare DNS Record
