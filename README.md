@@ -12,4 +12,4 @@ CF_Token="YOUR_API_TOKEN"
 CF_Domain="YOUR_DOMAIN"
 ```
 ********
-It's only support IPv4 now.
+It only supports IPv4 now.
